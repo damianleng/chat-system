@@ -27,5 +27,3 @@ function getMessages() {
 function sendMessage(message) {
   $.post("http://localhost:3000/messages", message);
 }
-
-

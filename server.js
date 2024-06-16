@@ -25,7 +25,13 @@ mongoose
     console.log("DB connection successful");
   });
 
-const Message = mongoose.model("Message", { name: String, message: String });
+const messageSchema = new mongoose.Schema({
+  name: String,
+  message: String,
+  createdAt: { type: Date, default: Date.now },
+});
+
+const Message = mongoose.model("Message", messageSchema);
 
 app.get("/messages", (req, res) => {
   Message.find({})
